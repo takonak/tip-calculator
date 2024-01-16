@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+              <section>
+                <div class="wrapper">
+                     <label for="bill" class="tbl" >
+                        Bill 
+                     </label>
+                     <div class="input-box">
+                        <span style="color: azure;">$</span>
+                        <input type="number" value="" id="bill" class="val"  style="border-radius: 5px;">
+                     </div>
+                </div>
+                <div class="wrapper">
+                    <span class="tbl" style="color: azure;">Tip</span>
+                    <span id="tip-amount" class="val" style="color: azure;">0$</span>
+                    <hr>
+                    <div class="wrapper">
+                        <span class="tbl" style="color: azure;">Total Amount</span>
+                        <span id="total-amount" class="val" style="color: azure;">0$</span>
+                    </div>
+
+                </div>
+              </section>
+              <section>
+                <div class="wrapper">
+                    <label for="tip" class="tbl">
+                        Tip %
+                    </label>
+                    <span id="tipPercentage" class="val" style="color: azure;">
+                        0
+                    </span>
+                </div>
+                <input type="range" min="15" id="tip" value="0" style="width: 300px;">
+                <div class="wrapper"></div>
+              </section>
+    </div>
+
+    <script>
+
+const sliders= document.querySelectorAll("input[type='range']");
+
+sliders.forEach(function(slider){
+    slider.addEventListener ("input", calculateTip);
+
+
+});
+
+const billInput = document.getElementById("bill");
+billInput.addEventListener("change", calculateTip);
+
+
+
+function calculateTip(){
+      let bill = parseFloat(billInput.value);
+      let tipPercentage = document.getElementById("tip").value;
+
+      billInput.value = bill.toFixed(2);
+
+      let totalTip = parseFloat((bill*(tipPercentage/100)).toFixed(2));
+      let total = parseFloat((bill + totalTip).toFixed(2));
+
+      document.getElementById("tip-amount").textContent=`\$ ${totalTip}`;
+      document.getElementById("total-amount").textContent = `\$ ${total}`;
+      document.getElementById("tipPercentage").textContent = `${tipPercentage}%`;
+
+
+}
+
+
+    </script>
+</body>
+</html

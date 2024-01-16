@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: #6482c9;
+    border-radius: 5px;
+    padding: 30px;
+    width: 300px;
+    height: 180px;
+    box-shadow: 2px 2px 2px 2px;
+}
+.wrapper{
+    justify-content: space-between;
+    margin: 12px 0px;
+}
+.val{
+  float: right;  
+   
+
+}
+.tbl{
+    color: azure;
+    
+}
+.input-box{
+    display: flex;
+    float: right;
+}
+
+#bill{
+    border: none;
+    outline: none;
+    width: 100px;
+    float:right;
+    text-align: right;
+
+}
+#tip-amount{
+    float: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
